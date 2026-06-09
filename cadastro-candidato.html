@@ -1,0 +1,292 @@
+<!DOCTYPE html> <html lang="pt-BR">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>TalentMatch - Cadastro de Candidato</title> <style>  
+  
+*{  
+    margin:0;  
+    padding:0;  
+    box-sizing:border-box;  
+}  
+  
+body{  
+    font-family:Segoe UI, Arial, sans-serif;  
+    background:#f5f7fb;  
+    color:#1f2937;  
+}  
+  
+header{  
+    background:#111827;  
+    color:white;  
+    padding:20px;  
+    text-align:center;  
+}  
+  
+.container{  
+    max-width:900px;  
+    margin:40px auto;  
+    background:white;  
+    padding:30px;  
+    border-radius:15px;  
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);  
+}  
+  
+h1{  
+    margin-bottom:10px;  
+}  
+  
+.descricao{  
+    color:#6b7280;  
+    margin-bottom:30px;  
+}  
+  
+.section-title{  
+    margin-top:25px;  
+    margin-bottom:15px;  
+    color:#2563eb;  
+}  
+  
+.form-group{  
+    margin-bottom:15px;  
+}  
+  
+label{  
+    display:block;  
+    margin-bottom:6px;  
+    font-weight:600;  
+}  
+  
+input,  
+textarea,  
+select{  
+    width:100%;  
+    padding:12px;  
+    border:1px solid #d1d5db;  
+    border-radius:8px;  
+    font-size:14px;  
+}  
+  
+textarea{  
+    resize:vertical;  
+    min-height:100px;  
+}  
+  
+.radio-group{  
+    display:flex;  
+    gap:15px;  
+    flex-wrap:wrap;  
+}  
+  
+.radio-group label{  
+    font-weight:normal;  
+}  
+  
+button{  
+    width:100%;  
+    padding:15px;  
+    background:#2563eb;  
+    color:white;  
+    border:none;  
+    border-radius:10px;  
+    cursor:pointer;  
+    font-size:16px;  
+    margin-top:20px;  
+}  
+  
+button:hover{  
+    background:#1d4ed8;  
+}  
+  
+#resultado{  
+    margin-top:25px;  
+    padding:15px;  
+    border-radius:10px;  
+    display:none;  
+    background:#dcfce7;  
+    color:#166534;  
+}  
+  
+footer{  
+    margin-top:40px;  
+    text-align:center;  
+    padding:20px;  
+    background:#111827;  
+    color:white;  
+}  
+  
+</style> </head>  
+<body> <header>  
+    <h1>TalentMatch</h1>  
+    <p>Cadastro de Candidato</p>  
+</header> <div class="container"> <h1>Crie seu Perfil</h1>  
+
+<p class="descricao">  
+    Preencha suas informações para que empresas encontrem você.  
+</p>  
+
+<form id="formCandidato">  
+
+    <h2 class="section-title">Informações Básicas</h2>  
+
+    <div class="form-group">  
+        <label>Nome Completo</label>  
+        <input type="text" id="nome" required>  
+    </div>  
+
+    <div class="form-group">  
+        <label>E-mail</label>  
+        <input type="email" id="email" required>  
+    </div>  
+
+    <div class="form-group">  
+        <label>Telefone</label>  
+        <input type="tel" id="telefone">  
+    </div>  
+
+    <div class="form-group">  
+        <label>Cidade</label>  
+        <input type="text" id="cidade">  
+    </div>  
+
+    <div class="form-group">  
+        <label>Estado</label>  
+        <input type="text" id="estado">  
+    </div>  
+
+    <div class="form-group">  
+        <label>Data de Nascimento</label>  
+        <input type="date" id="nascimento">  
+    </div>  
+
+    <h2 class="section-title">Sobre Você</h2>  
+
+    <div class="form-group">  
+        <label>Resumo Profissional</label>  
+        <textarea id="resumo"></textarea>  
+    </div>  
+
+    <div class="form-group">  
+        <label>Objetivos Profissionais</label>  
+        <textarea id="objetivos"></textarea>  
+    </div>  
+
+    <div class="form-group">  
+        <label>Área de Interesse</label>  
+
+        <select id="area">  
+            <option>Programação</option>  
+            <option>Marketing</option>  
+            <option>Design</option>  
+            <option>RH</option>  
+            <option>Vendas</option>  
+            <option>Administração</option>  
+            <option>Logística</option>  
+            <option>Audiovisual</option>  
+        </select>  
+    </div>  
+
+    <h2 class="section-title">Habilidades</h2>  
+
+    <div class="form-group">  
+        <label>Quais habilidades você possui?</label>  
+        <textarea id="habilidades"></textarea>  
+    </div>  
+
+    <div class="form-group">  
+        <label>Ferramentas que domina</label>  
+        <textarea id="ferramentas"></textarea>  
+    </div>  
+
+    <h2 class="section-title">Disponibilidade</h2>  
+
+    <div class="form-group">  
+
+        <label>Tipo de Trabalho</label>  
+
+        <div class="radio-group">  
+
+            <label>  
+                <input type="radio" name="trabalho" value="Estágio">  
+                Estágio  
+            </label>  
+
+            <label>  
+                <input type="radio" name="trabalho" value="CLT">  
+                CLT  
+            </label>  
+
+            <label>  
+                <input type="radio" name="trabalho" value="Freelancer">  
+                Freelancer  
+            </label>  
+
+            <label>  
+                <input type="radio" name="trabalho" value="Jovem Aprendiz">  
+                Jovem Aprendiz  
+            </label>  
+
+        </div>  
+
+    </div>  
+
+    <div class="form-group">  
+
+        <label>Modalidade</label>  
+
+        <div class="radio-group">  
+
+            <label>  
+                <input type="radio" name="modalidade" value="Presencial">  
+                Presencial  
+            </label>  
+
+            <label>  
+                <input type="radio" name="modalidade" value="Híbrido">  
+                Híbrido  
+            </label>  
+
+            <label>  
+                <input type="radio" name="modalidade" value="Remoto">  
+                Remoto  
+            </label>  
+
+        </div>  
+
+    </div>  
+
+    <button type="submit">  
+        Salvar Perfil  
+    </button>  
+
+</form>  
+
+<div id="resultado"></div>
+
+</div> <footer>  
+    TalentMatch © 2026  
+</footer> <script>  
+  
+const formulario = document.getElementById("formCandidato");  
+const resultado = document.getElementById("resultado");  
+  
+formulario.addEventListener("submit", function(event){  
+  
+    event.preventDefault();  
+  
+    const nome = document.getElementById("nome").value;  
+    const email = document.getElementById("email").value;  
+    const area = document.getElementById("area").value;  
+  
+    resultado.style.display = "block";  
+  
+    resultado.innerHTML = `  
+        <strong>Perfil salvo com sucesso!</strong><br><br>  
+        Nome: ${nome}<br>  
+        E-mail: ${email}<br>  
+        Área de Interesse: ${area}  
+    `;  
+  
+});  
+  
+</script> </body>  
+</html>
